@@ -1,0 +1,51 @@
+Processing: gisette
+	 λ = 0.197
+	 Features: 10
+		training error: 11.483333333333333%
+		validation error: 10.4%
+	 λ = 0.135
+	 Features: 30
+		training error: 6.6%
+		validation error: 7.3%
+	 λ = 0.08745
+	 Features: 100
+		training error: 3.1%
+		validation error: 3.3%
+	 λ = 0.053
+	 Features: 300
+		training error: 1.25%
+		validation error: 1.8%
+Processing: dexter
+	 λ = 0.15
+	 Features: 10
+		training error: 15.666666666666666%
+		validation error: 18.0%
+	 λ = 0.0983663
+	 Features: 31
+		training error: 5.0%
+		validation error: 12.0%
+	 λ = 0.0713
+	 Features: 100
+		training error: 1.6666666666666667%
+		validation error: 8.0%
+	 λ = 0.05269
+	 Features: 293
+		training error: 0.0%
+		validation error: 6.666666666666667%
+Processing: madelon
+	 λ = 0.029799
+	 Features: 8
+		training error: 38.6%
+		validation error: 39.5%
+	 λ = 0.02435
+	 Features: 30
+		training error: 35.7%
+		validation error: 42.833333333333336%
+	 λ = 0.01695
+	 Features: 100
+		training error: 32.6%
+		validation error: 42.833333333333336%
+	 λ = 0.0074
+	 Features: 299
+		training error: 27.05%
+		validation error: 42.833333333333336%

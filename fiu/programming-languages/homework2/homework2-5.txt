@@ -1,0 +1,28 @@
+Step #1: The base case is correct. An empty list can not be sorted (or is already sorted), so the result is an empty list, [].
+
+Step #2: The recursive clause is correct. For input list L, splitting results in two sublists of L, call them M, N. If M and N are assumed correctly sorted, the right thing to do would be to merge them together using the merge method, which sorts while merging.
+
+Step #3: The program fails Step #3. 
+	Consider the case of a singleton list [x]. The recursive clause will split [x] into two lists, using the split function, and then merge what the recursive statements return on the two lists. However, one of the two lists produced would be a list of the same size as [x], since the only way to split [x] is into ([x], []) or ([], [x]).
+	So, the recursive call for this type of input (which will always occur for any non-empty list input) will not be acting on an input size less than the orginal. This will result in a non-terminating loop, and so the program will fail Step #3.
+
+----------------------------
+
+let rec mergesort = function
+	| []	->	[]
+	| [x]	->	[x]
+	| x		->	let (M, N) = split x
+			merge (mergesort M, mergesort N)
+
+----------------------------
+
+val merge : 'a list * 'a list -> 'a list when 'a : comparison
+val split : _arg1:'a list -> 'a list * 'a list
+val mergesort : _arg1:'a list -> 'b list when 'b : comparison
+
+The compiler infers type 'a list -> 'b list (where 'b is comparison) for the mergesort function.
+This is suspicious for two reasons:
+	- First, a sorting function should accept as input a list of comparison elements, since these elements must be able to be compared against one another.
+	If the input list type is allowed to not be comparison, there is no guarantee that the elements will be able to be sorted since they may not be able to be compared against one another.
+	- Second, a sorting function should return a list of the same element-type as the input list. An int list should return and int list, etc. 
+	However, 

@@ -1,0 +1,1 @@
+void partC(FILE *file);

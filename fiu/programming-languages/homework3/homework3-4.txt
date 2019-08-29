@@ -1,0 +1,14 @@
+Denote by (t^k s 0) the expression (twice twice twice ... twice successor 0).
+Observe that	(t^0 s 0) -> 1
+				(t^1 s 0) -> 2
+				(t^2 s 0) -> 4
+				(t^3 s 0) -> 16
+				(t^4 s 0) -> 65536
+The expression (t^5 s 0) causes the program to crash during calculation (probably due to using so much memory), but I conjecture it prints 2^65536.
+In general, I claim (t^k s 0) computes the number 2^(t^(k-1) s 0).
+This makes sense because, when evaluating the expression twice twice twice ... twice successor 0, F# associates function application to the left.
+Because of this, k applications of twice results in the composition of k-1 compositions of twice with k-1 compositions of twice, so that
+	(t^3 s 0) = twice twice twice successor 0 = ((twice << twice) << (twice << twice)) successor 0, which is successor applied 16 times at 0.
+	However, this is equivalent to (t << t^2) s 0, which is 2^(t^2 s 0), which is 2^4, which is 2^(2^2), which is 16.
+	Similarly for (t^4 s 0), we obtain 2^(t^3 s 0) which is 2^16, which is 2^(2^(2^2)), which is 65536.
+Therefore, a recursive formula for (t^k s 0) would be a 2^(t^k-1 s 0), which could be generalized to 2^(2^(...^2)), usually denoted 2↑↑2.

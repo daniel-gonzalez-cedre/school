@@ -1,0 +1,122 @@
+\documentclass[UTF8]{article}
+
+\usepackage{amsmath, amsfonts, amssymb, amstext, amscd, amsthm, bbm, CJKutf8, color, dsfont, enumerate, float, graphicx, hyperref, makeidx, mathrsfs, mathtools, marvosym, soul, url, verbatim, xcolor, xfrac}
+\usepackage[left=2cm,top=2cm,right=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\allowdisplaybreaks 
+\newenvironment{subproof}[1][Proof]
+    {\proof[#1]\leftskip=1cm\rightskip=1cm}
+	{\endproof}
+
+%theorems with custom numbering
+%\newtheorem{innerthm}{Theorem}
+%\newenvironment{thm}[1]
+    %{\renewcommand\theinnerthm{#1}\innercustomthm}
+    %{\endinnerthm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{justification}{Justification}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+\renewcommand{\and}{\;\wedge\;}
+\newcommand{\disj}{\;\vee\;}
+\newcommand{\xor}{\;\oplus\;}
+\newcommand{\divides}{\;|\;}
+\newcommand{\suchthat}{\;\middle|\;}
+\newcommand{\contradiction}{\;\text{\Large \Lightning}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\integral}[1]{\smashoperator{\int_{#1}}}
+\renewcommand{\restriction}[1]{\downharpoonright_{#1}}
+\renewcommand{\qedsymbol}{QED} 
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg\!\min}
+\DeclareMathOperator*{\argmax}{arg\!\max}
+
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+\newcommand{\jp}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+
+\DeclarePairedDelimiterX \inner[2]{\langle}{\rangle}{#1,#2}
+\DeclarePairedDelimiterX \braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+\DeclarePairedDelimiter \bra{\langle}{\rvert}
+\DeclarePairedDelimiter \ket{\lvert}{\rangle}
+\DeclarePairedDelimiter \abs{\lvert}{\rvert}
+\DeclarePairedDelimiter \lrangle{\langle}{\rangle}
+\DeclarePairedDelimiter \norm{\lVert}{\rVert}
+\DeclarePairedDelimiter \set{\lbrace}{\rbrace}
+\DeclarePairedDelimiter \parens{(}{)}
+
+\begin{document}
+\begin{center}
+	\textsc{\huge Applied Machine Learning}\\
+	\textsc{\Large Homework 6}\\
+\end{center}
+\begin{flushright}
+	Daniel Gonzalez\\
+    Colton Piper\\
+	$25^{\text{th}}$ of October, $2018$
+\end{flushright}
+
+
+\section{Results}
+
+\subsection{Table}
+
+\begin{table}[H]
+\centering
+    \caption{Summary of Results: Original Learning Rates}
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        Data Set&\multicolumn{1}{|c|}{Learning Rate $\eta$}&Features Selected $k$&Training Error&Test Error\\\hline
+         &  & $10$ & $7.65\%$ & $8.30\%$\\\cline{3-5}
+        \texttt{gisette} & $5$ & $30$ & $3.28\%$ & $4.20\%$\\\cline{3-5}
+         &  & $100$ & $2.60\%$ & $3.00\%$\\\cline{3-5}
+         &  & $300$ & $2.87\%$ & $3.90\%$\\\hline\cline{1-5}
+
+         &  & $10$ & $7.00\%$ & $12.67\%$\\\cline{3-5}
+        \texttt{dexter} & $10$ & $30$ & $0.67\%$ & $14.33\%$\\\cline{3-5}
+         &  & $100$ & $0.00\%$ & $9.00\%$\\\cline{3-5}
+         &  & $300$ & $0.00\%$ & $11.00\%$\\\hline\cline{1-5}
+
+         &  & $10$ & $38.00\%$ & $39.50\%$\\\cline{3-5}
+        \texttt{madelon} & $0.01$ & $30$ & $35.80\%$ & $40.83\%$\\\cline{3-5}
+         &  & $100$ & $31.20\%$ & $40.83\%$\\\cline{3-5}
+         &  & $300$ & $25.90\%$ & $42.83\%$\\\hline
+    \end{tabular}
+\end{table}
+
+\subsection{Figures}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.95]{./figures/graph.eps}
+\end{figure}
+
+\newpage
+\section{Appendix: Code}
+If the code looks too small, please zoom in on the pdf.
+The screenshots are \texttt{.png} images, so you should be able to zoom in and read at whatever is a comfortable size for you.
+The first two screenshots are of the actual FSA code, while the last screenshot is the python code for normalizing and pre-processing the data.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{./figures/code1.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{./figures/code2.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{./figures/code_normalize.png}
+\end{figure}
+
+\end{document}

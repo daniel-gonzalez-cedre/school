@@ -1,0 +1,24 @@
+top1.txt: 
+v15, v7, v1, v11, v4, v2, v12, v9, v18, v17, v5, v10, v13, v6, v3, v8, v19, v16, v20, v14
+Running time (nanoseconds): 39884617
+
+top2.txt: 
+Graph has a cycle: v3 -> v26 -> v3
+Running time (nanoseconds): 68245686
+
+top3.txt: 
+Graph has a cycle: v926 -> v231 -> v700 -> v801 -> v719 -> v952 -> v953 -> v288 -> v736 -> v926
+Running time (nanoseconds): 270036198
+
+top4.txt: 
+Graph has a cycle: v3120 -> v6775 -> v505 -> v103 -> v5002 -> v3074 -> v2556 -> v6653 -> v1715 -> v6054 -> v7207 -> v3120
+Running time (nanoseconds): 1238453763
+
+top5.txt: 
+Graph has a cycle: v91017 -> v74903 -> v27227 -> v81701 -> v5247 -> v94189 -> v687 -> v3688 -> v96322 -> v49291 -> v18315 -> v75062 -> v75286 -> v98059 -> v56701 -> v71023 -> v65838 -> v91017
+Running time (nanoseconds): 8810176052
+
+top6.txt: 
+Graph has a cycle: v1434999 -> v285860 -> v1939350 -> v309810 -> v630528 -> v1948269 -> v1141066 -> v919942 -> v636705 -> v1623749 -> v1350337 -> v1997346 -> v881987 -> v1650594 -> v823980 -> v1471064 -> v1576772 -> v1386046 -> v1434999
+Running time (nanoseconds): 33501095436
+

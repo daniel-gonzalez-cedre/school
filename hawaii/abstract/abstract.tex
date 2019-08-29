@@ -1,0 +1,56 @@
+\documentclass[10pt, oneside]{amsart}
+\usepackage{geometry}			
+\geometry{letterpaper, left=1.0in, right=1.0 in, top=1.0in}
+\makeindex
+
+\usepackage{amsmath, amsfonts, amssymb, amstext, amscd, graphicx, hyperref, url, enumerate}
+%amsfonts, amssymb, amstext, amscd, amsthm, makeidx, graphicx, hyperref, url, enumerate
+\allowdisplaybreaks
+\setlength{\parskip}{0.25cm}
+
+%\setcounter{chapter}{0}
+\topmargin -.75in
+\textheight 9.25in
+\textwidth 6.5in
+\oddsidemargin 0in
+
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+\newtheorem{result}{Result}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand {\bb} [1] {\mathbb{#1}}
+\newcommand {\script} [1] {\mathcal{#1}}
+\newcommand {\rem} [2] {#1\pmod{#2}}
+
+\newcounter{example}[section]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+   \noindent \textit{Example~\theexample. #1} \rmfamily}{\medskip}
+   
+\input xy
+\xyoption{all}
+
+%alternatively, the following 3 lines give a different header
+%title{Document Title}
+%\author{Author}
+%\date{\today}
+
+\begin{document}
+
+\begin{center}\textsc{\Large Monotone Catenary Degree in Numerical Monoids}\\
+D. Gonzalez, C. Wright, J. Zomback
+
+\end{center}
+%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Abstract}
+
+Recent investigations on the catenary degrees of numerical monoids have demonstrated that this invariant is a powerful tool in understanding the factorization theory of this class of monoids.  Although useful, the catenary degree is largely not sensitive to the lengths of factorizations of an element.  In this paper, we study the monotone catenary degree of numerical monoids, which is a variant of catenary degree that requires chains run through factorization lengths monotonically.  In general, the monotone catenary is greater than or equal to the catenary degree.  We begin by providing an important class of monoids (arithmetical numerical monoids) for which monotone catenary degree is equal to the catenary degree.  Conversely, we provide several classes of embedding dimension $3$ numerical monoids where monotone catenary degree is strictly greater.  We conclude by showing that this difference can grow arbitrarily large.
+
+\end{document}

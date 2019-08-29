@@ -1,0 +1,1 @@
+void rectangleAreas(FILE *file);

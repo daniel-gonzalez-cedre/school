@@ -1,0 +1,94 @@
+\ProvidesPackage{beamerthemePUREMath}
+\selectcolormodel{cmyk}
+\mode<presentation>
+
+\usepackage{amsmath, amssymb, amsthm, amsfonts, amstext, amscd, lscape, graphpap, wrapfig, graphicx, color, latexsym, fancybox, epsfig}
+
+\AtBeginDocument{\newcommand{\student}[2]{\hfill \begin{tabular}{c} \LARGE #1 \\[5pt] \Large #2 \end{tabular} \hfill}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{i6colorscheme1}{HTML}{094B09}  % headline background
+\definecolor{i6colorblockbg}{HTML}{FD9903} %block background
+\definecolor{i6colorschemeBackground}{HTML}{86B404}  % poster background
+\definecolor{i6colorschemeTitle}{HTML}{FF0000} %title color
+\definecolor{i6colorschemeHeadline}{HTML}{104B20}  % for headline background
+\definecolor{i6colorschemeBlockTitle}{HTML}{FFFFFF}  % for block title
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{headline}{fg=white,bg=i6colorschemeHeadline}
+\setbeamercolor{title in headline}{fg=i6colorschemeTitle}
+\setbeamercolor{author in headline}{fg=i6colorblockbg}
+\setbeamercolor{logo in headline}{fg=black,bg=i6colorschemeHeadline}
+\setbeamercolor{separation line}{bg=i6colorscheme1}
+
+\setbeamercolor{footline}{fg=black,bg=black}
+\setbeamerfont{footline}{size=\normalsize}
+
+\setbeamercolor*{normal text}{fg=black,bg=i6colorschemeBackground}
+
+\setbeamercolor*{block body}{bg=white,fg=black}
+\setbeamercolor*{block title}{fg=i6colorschemeBlockTitle,bg=i6colorblockbg}
+\setbeamerfont{block title}{size=\large,series=\bf}
+
+\setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
+\setbeamerfont{example title}{size=\large,series=\bf}
+
+\setbeamercolor{alerted text}{fg=i6colorschemeTitle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{block begin}{
+\vskip.75ex
+\begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex]{block title}%
+\usebeamerfont*{block title}\insertblocktitle
+\end{beamercolorbox}%
+{\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+\usebeamerfont{block body}%
+\begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+\ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+\setbeamertemplate{block end}{\end{beamercolorbox}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{  
+\leavevmode
+\begin{beamercolorbox}[wd=\paperwidth]{headline} \begin{columns}[T]
+\begin{column}{0.15\paperwidth} \begin{center} \vskip 0.005\textheight \includegraphics[width=.375\textwidth]{purelogo.png}
+ \end{center} \end{column}
+\begin{column}{.70\paperwidth} \begin{center}
+\usebeamercolor{title in headline}{\color{fg}\textbf{\vskip 0.005\textheight \veryHuge{\inserttitle}}\\[10pt]}
+\usebeamercolor{author in headline}{\color{fg}{\insertauthor}}
+\end{center} \end{column}
+\begin{column}{.15\paperwidth} \begin{center} \vskip 0.0\textheight 
+\includegraphics[width=0.375\textwidth]{hiloseal.png}
+\end{center} \end{column}
+\end{columns} \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{footline}{
+\begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+\rule{0pt}{2pt}
+\end{beamercolorbox}
+\leavevmode%
+\hbox{
+\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+\centering Pacific Undergraduate Research Experience \quad $\texttt{http://www2.hawaii.edu/pure/\~{}PUREMath/2014.html}$
+\end{beamercolorbox}}%
+\vskip0pt%
+\begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+\rule{0pt}{2pt}
+\end{beamercolorbox}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>

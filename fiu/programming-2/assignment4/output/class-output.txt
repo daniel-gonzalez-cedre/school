@@ -1,0 +1,236 @@
+The problem with First-Fit looks like it is continuously adding to the fourth bucket and refusing to create more, causing integer overflow and giving weird values. I do not know why more buckets are not created in the tournament tree, as when I hard-code the bucket-creating piece of the code that runs in my while-loop, new buckets are created and the algorithm works as intended, but if left to run in the loop (as it should) it refuses to create more than 4 buckets. The tournament tree was implemented using an array as explained in class. I tried the similar code using a TournamentTree class I made and the same problem occured.
+
+Analysis for file input/data1.txt
+The ideal number of bins is 9.
+
+Online algorithms:
+	Next fit:
+		13 bucket(s) used.
+		First ten buckets' contents: 670126108 905864828 935413350 121479719 940659847 829053134 210618514 904560416 695919067 985876308
+		Time elapsed: 759739 nanoseconds.
+	Worst fit:
+		12 bucket(s) used.
+		First ten buckets' contents: 786307642 801501091 801552261 811445745 837044497 870349630 873436246 904560416 928992256 935413350
+		Time elapsed: 1510189 nanoseconds.
+	Best fit:
+		19 bucket(s) used.
+		First ten buckets' contents: 940659847 935413350 928992256 905864828 904560416 786307642 695919067 670126108 670126108 585318599
+		Time elapsed: 3008949 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 670126108 978365914 935413350 -1385532529
+		Time elapsed: 727723 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		13 bucket(s) used.
+		First ten buckets' contents: 940659847 935413350 928992256 904560416 786307642 695919067 680021372 670126108 585318599 581168399
+		Time elapsed: 452430 nanoseconds.
+	Worst fit:
+		11 bucket(s) used.
+		First ten buckets' contents: 829146665 846939761 869286046 874406299 876323853 880744622 901834320 904560416 928992256 935413350
+		Time elapsed: 638468 nanoseconds.
+	Best fit:
+		19 bucket(s) used.
+		First ten buckets' contents: 999584914 935413350 928992256 904560416 786307642 695919067 680021372 670126108 585318599 581168399
+		Time elapsed: 624875 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 940659847 987917323 977061502 1652288117
+		Time elapsed: 271925 nanoseconds.
+
+Analysis for file input/data2.txt
+The ideal number of bins is 103.
+
+Online algorithms:
+	Next fit:
+		135 bucket(s) used.
+		First ten buckets' contents: 860716214 812924197 926785553 806749179 768807176 306768430 890212321 967302982 768858990 402760155
+		Time elapsed: 668523 nanoseconds.
+	Worst fit:
+		123 bucket(s) used.
+		First ten buckets' contents: 534069186 626701841 674868228 705025136 710422247 711344894 711459778 714535307 716253157 724766332
+		Time elapsed: 1991777 nanoseconds.
+	Best fit:
+		200 bucket(s) used.
+		First ten buckets' contents: 999249909 999141831 998227315 982306741 974554641 973071467 970762457 965583316 959548709 957479122
+		Time elapsed: 2573840 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 860716214 987167269 997897026 2096222835
+		Time elapsed: 680556 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		132 bucket(s) used.
+		First ten buckets' contents: 999249909 998227315 982306741 974554641 973071467 970762457 965583316 959548709 957479122 949121879
+		Time elapsed: 402982 nanoseconds.
+	Worst fit:
+		107 bucket(s) used.
+		First ten buckets' contents: 900994457 902512070 904011999 912589149 915101796 920445947 921302475 922346676 926785553 927123779
+		Time elapsed: 676619 nanoseconds.
+	Best fit:
+		200 bucket(s) used.
+		First ten buckets' contents: 999249909 998227315 982306741 974554641 973071467 970762457 965583316 959548709 957479122 949121879
+		Time elapsed: 1148047 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 999249909 982306741 974554641 987664738
+		Time elapsed: 348710 nanoseconds.
+
+Analysis for file input/data3.txt
+The ideal number of bins is 1050.
+
+Online algorithms:
+	Next fit:
+		1407 bucket(s) used.
+		First ten buckets' contents: 890977563 781693771 866663779 801241558 673888091 625371324 493258659 519785601 744451996 832886085
+		Time elapsed: 1486462 nanoseconds.
+	Worst fit:
+		1233 bucket(s) used.
+		First ten buckets' contents: 636512553 646834288 648776609 650095280 652009949 653176708 656183402 661829723 662835294 663920524
+		Time elapsed: 3619710 nanoseconds.
+	Best fit:
+		2000 bucket(s) used.
+		First ten buckets' contents: 999429190 999046806 998981110 998875890 998739817 997895057 997259071 996999621 996971470 996751279
+		Time elapsed: 8782291 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 890977563 999797361 999694587 -602645284
+		Time elapsed: 3170728 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		1356 bucket(s) used.
+		First ten buckets' contents: 999046806 998981110 998875890 998739817 997895057 997259071 996999621 996971470 996751279 996740791
+		Time elapsed: 1531351 nanoseconds.
+	Worst fit:
+		1063 bucket(s) used.
+		First ten buckets' contents: 934003229 934162186 934953822 935915735 936637920 936825407 936930542 938025040 938037151 938739814
+		Time elapsed: 3287153 nanoseconds.
+	Best fit:
+		2000 bucket(s) used.
+		First ten buckets' contents: 999046806 998981110 998875890 998739817 997895057 997259071 996999621 996971470 996751279 996740791
+		Time elapsed: 4197807 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 999046806 998875890 998739817 -1707819396
+		Time elapsed: 2822096 nanoseconds.
+
+Analysis for file input/data4.txt
+The ideal number of bins is 10426.
+
+Online algorithms:
+	Next fit:
+		13923 bucket(s) used.
+		First ten buckets' contents: 200826103 932738789 435775475 914272036 670037233 769958565 412236816 664904226 468118391 849925922
+		Time elapsed: 8483234 nanoseconds.
+	Worst fit:
+		12209 bucket(s) used.
+		First ten buckets' contents: 484153061 528210698 535542312 549469241 580868511 596839019 658140420 662055195 672491362 684396541
+		Time elapsed: 32926769 nanoseconds.
+	Best fit:
+		20000 bucket(s) used.
+		First ten buckets' contents: 999961840 999940018 999874973 999601762 999599189 999593022 999507504 999493417 999487336 999378572
+		Time elapsed: 15446884 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 401652206 965204643 987014266 -141563677
+		Time elapsed: 26957000 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		13451 bucket(s) used.
+		First ten buckets' contents: 999961840 999940018 999874973 999601762 999599189 999593022 999507504 999493417 999487336 999378572
+		Time elapsed: 6148707 nanoseconds.
+	Worst fit:
+		10465 bucket(s) used.
+		First ten buckets' contents: 949617208 949679418 949685577 949691186 949694948 949721014 949747909 949884097 950098937 950105005
+		Time elapsed: 5622093 nanoseconds.
+	Best fit:
+		20000 bucket(s) used.
+		First ten buckets' contents: 999961840 999940018 999874973 999601762 999599189 999593022 999507504 999493417 999487336 999378572
+		Time elapsed: 12160133 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 999961840 999874973 999601762 -1055158469
+		Time elapsed: 23918722 nanoseconds.
+
+Analysis for file input/data5.txt
+The ideal number of bins is 104866.
+
+Online algorithms:
+	Next fit:
+		140088 bucket(s) used.
+		First ten buckets' contents: 813238286 758007995 570607074 651692899 684568178 768699364 774737868 950713751 106344065 975826584
+		Time elapsed: 20326632 nanoseconds.
+	Worst fit:
+		122878 bucket(s) used.
+		First ten buckets' contents: 640701250 693657583 694124815 694369609 694463316 694549266 695090931 695128229 695176815 695263603
+		Time elapsed: 66905254 nanoseconds.
+	Best fit:
+		199998 bucket(s) used.
+		First ten buckets' contents: 999998204 999997335 999996169 999989868 999987656 999972599 999966649 999963837 999961834 999959750
+		Time elapsed: 162683934 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 912531310 987679413 998316973 1755824628
+		Time elapsed: 42681683 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		135457 bucket(s) used.
+		First ten buckets' contents: 999998204 999997335 999996169 999989868 999987656 999972599 999966649 999963837 999961834 999959750
+		Time elapsed: 27677992 nanoseconds.
+	Worst fit:
+		105220 bucket(s) used.
+		First ten buckets' contents: 949606406 949610045 949612394 949631191 949634652 949636474 949640584 949647777 949648044 949657838
+		Time elapsed: 48015401 nanoseconds.
+	Best fit:
+		200000 bucket(s) used.
+		First ten buckets' contents: 999998204 999997335 999996169 999989868 999987656 999972599 999966649 999963837 999961834 999959750
+		Time elapsed: 121516797 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 999998204 999996169 999989868 1313085719
+		Time elapsed: 43326774 nanoseconds.
+
+Analysis for file input/data6.txt
+The ideal number of bins is 1050025.
+
+Online algorithms:
+	Next fit:
+		1401835 bucket(s) used.
+		First ten buckets' contents: 719238952 501762082 962394347 956878955 941805919 299976659 844540002 853292619 177933493 967220527
+		Time elapsed: 48701692 nanoseconds.
+	Worst fit:
+		1229994 bucket(s) used.
+		First ten buckets' contents: 561627451 597400050 657757783 664501361 691134621 692287771 695007138 695098379 695121661 695756448
+		Time elapsed: 650440611 nanoseconds.
+	Best fit:
+		2000000 bucket(s) used.
+		First ten buckets' contents: 999999888 999999168 999999004 999998973 999998797 999997173 999997149 999996758 999996614 999995696
+		Time elapsed: 3049136013 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 536603397 984374296 962394347 -1521041830
+		Time elapsed: 85506761 nanoseconds.
+
+Offline algorithms:
+	Next fit:
+		1355538 bucket(s) used.
+		First ten buckets' contents: 999999888 999999168 999999004 999998973 999998797 999997173 999997149 999996758 999996614 999995696
+		Time elapsed: 428041392 nanoseconds.
+	Worst fit:
+		1053542 bucket(s) used.
+		First ten buckets' contents: 949010123 949010130 949010480 949010860 949011505 949012438 949012689 949013726 949013827 949014236
+		Time elapsed: 335106459 nanoseconds.
+	Best fit:
+		2000000 bucket(s) used.
+		First ten buckets' contents: 999999888 999999168 999999004 999998973 999998797 999997173 999997149 999996758 999996614 999995696
+		Time elapsed: 2113504317 nanoseconds.
+	First fit (tournament tree):
+		4 bucket(s) used.
+		First ten buckets' contents: 999999888 999999004 999998973 1257300473
+		Time elapsed: 83325914 nanoseconds.
+

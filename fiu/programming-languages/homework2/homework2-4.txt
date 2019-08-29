@@ -1,0 +1,9 @@
+Step #1: The base cases return the correct values. The empty list, [], can not be sorted, so the program returns []. The list with one element, [x], is already sorted, so it returns [x].
+
+Step #2: The point where this program fails is in the correctness of the recursive calls.
+	Assume that we have a list x1::x2::xs, and x1 > x2.
+		Assuming x1::xs is sorted, it does not follow that x2::x1::xs will be sorted in non-decreasing order.
+		For example, if x1 = 6, x2 = 5, xs = [4], we would have x2::(sort (x1::xs)), which would give x2::(xs::x1) because 4 <= 6, and this would return [5;4;6] as its "sorted" list.
+	Since this is a recursive (non-base) case that returns an incorrect result, this program fails Step #2 of the checklist. 
+
+Step #3: Every recursive call is done on a list of smaller size than the input. When taking as input x1::x2::xs, both recursive calls are on a list of one less element, either x1::xs, or x2::xs.

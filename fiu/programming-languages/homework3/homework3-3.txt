@@ -1,0 +1,24 @@
+On input:	[[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];
+			[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];[1];]
+flatten1 took 15 clock cycles to output.
+flatten2 took 07 clock cycles to output.
+Larger list sizes exceed the size limit of a list literal.
+
+Let x be a list of length n.
+Since flatten1 x is defined by (@) [] x, flatten1 does n many invocations of [1;2;...i] @ [i+1], where the left list is length i and the right list is a singleton.
+	So, flatten1 x performs O(n) many invocations of work that is linear in the size of the list being analysed at the time, O(i).
+	So, flatten1 x does O(n(n+1)/2) work, which is quadratic in the size of the list.
+On the other hand, flatten2 x is defined by (@) x [], which does n many invocations of [i] @ [i+1;i+2;...n], which is constant work.
+	So, flatten2 x performs O(n) many invocations of constant work each.
+	So, flatten2 x does approximately O(n) work, linear in the size of the list.
+Basically, flatten2 is better than flatten1.
