@@ -5,11 +5,11 @@
 import re
 import numpy as np
 
-training_data = ["./data/gisette/gisette_train.data", "./data/dexter/dexter_train.csv", "./data/madelon/madelon_train.data"]
-test_data = ["./data/gisette/gisette_valid.data", "./data/dexter/dexter_valid.csv", "./data/madelon/madelon_valid.data"]
+training_data = ["./data/gisette/gisette-train.data", "./data/dexter/dexter-train.csv", "./data/madelon/madelon-train.data"]
+test_data = ["./data/gisette/gisette-valid.data", "./data/dexter/dexter-valid.csv", "./data/madelon/madelon-valid.data"]
 
-training_labels = ["./data/gisette/gisette_train.labels", "./data/dexter/dexter_train.labels", "./data/madelon/madelon_train.labels"]
-test_labels = ["./data/gisette/gisette_valid.labels", "./data/dexter/dexter_valid.labels", "./data/madelon/madelon_valid.labels"]
+training_labels = ["./data/gisette/gisette-train.labels", "./data/dexter/dexter-train.labels", "./data/madelon/madelon-train.labels"]
+test_labels = ["./data/gisette/gisette-valid.labels", "./data/dexter/dexter-valid.labels", "./data/madelon/madelon-valid.labels"]
 
 #MAIN DATA PROCESSING
 for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_data, test_data, training_labels, test_labels):
@@ -54,13 +54,13 @@ for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_dat
 
         #OUTPUT DATA
         print("\t Writing normalized training data...")
-        np.save("./data_norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], data)
+        np.save("./data-norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], data)
 
         print("\t Writing normalized validation data...")
-        np.save("./data_norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], valid)
+        np.save("./data-norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], valid)
 
         print("\t Writing training labels...")
-        np.save("./data_norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], data_labels)
+        np.save("./data-norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], data_labels)
 
         print("\t Writing validation labels...")
-        np.save("./data_norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], valid_labels)
+        np.save("./data-norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], valid_labels)

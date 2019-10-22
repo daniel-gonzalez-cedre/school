@@ -40,7 +40,7 @@ for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_dat
         std = [sqrt(x) for x in std]
         norm = [[x/s for x, s in zip(vector, std) if s != 0] for vector in shifted]
 
-        with open("./data_norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], "w") as output:
+        with open("./data-norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], "w") as output:
             for vector in norm:
                 for x in vector:
                     output.write(str(x) + " ")
@@ -52,14 +52,14 @@ for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_dat
             line = [float(x) for x in line.strip().strip("\n").split(" ")]
             norm.append([(x - m)/s for x, m, s in zip(line, avg, std) if s != 0])
 
-        with open("./data_norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], "w") as output:
+        with open("./data-norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], "w") as output:
             for vector in norm:
                 for x in vector:
                     output.write(str(x) + " ")
                 output.write("\n")
 
         print("Processing: " + str(f_train_labels).split("/")[-1])
-        with open("./data_norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], "w") as output:
+        with open("./data-norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], "w") as output:
             for line in train_labels:
                 line = [int(x) for x in line.strip().strip("\n").split(" ")]
                 if line[0] == 1:
@@ -68,7 +68,7 @@ for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_dat
                     output.write("0\n")
 
         print("Processing: " + str(f_test_labels).split("/")[-1])
-        with open("./data_norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], "w") as output:
+        with open("./data-norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], "w") as output:
             for line in test_labels:
                 line = [int(x) for x in line.strip().strip("\n").split(" ")]
                 if line[0] == 1:

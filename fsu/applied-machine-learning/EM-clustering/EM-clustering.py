@@ -70,9 +70,9 @@ def provable_EM(data, k, l):
 #MAIN BLOCK
 def main():
     with open('./output/results.txt', 'w') as f:
-        xeasy = np.load('./data_parsed/xeasy.data.npy')
-        x1 = np.load('./data_parsed/x1.data.npy')
-        x2 = np.load('./data_parsed/x2.data.npy')
+        xeasy = np.load('./data-parsed/xeasy.data.npy')
+        x1 = np.load('./data-parsed/x1.data.npy')
+        x2 = np.load('./data-parsed/x2.data.npy')
 
         #ONE-STEP EM ALGORITHM
         print('ONE-STEP EM:', file=f)

@@ -6,11 +6,11 @@ import re
 import numpy as np
 import matplotlib.pyplot as plt
 
-training_data = ["./data_norm/gisette/gisette_train.data.npy", "./data_norm/dexter/dexter_train.csv.npy", "./data_norm/madelon/madelon_train.data.npy"]
-test_data = ["./data_norm/gisette/gisette_valid.data.npy", "./data_norm/dexter/dexter_valid.csv.npy", "./data_norm/madelon/madelon_valid.data.npy"]
+training_data = ["./data-norm/gisette/gisette_train.data.npy", "./data-norm/dexter/dexter_train.csv.npy", "./data-norm/madelon/madelon_train.data.npy"]
+test_data = ["./data-norm/gisette/gisette_valid.data.npy", "./data-norm/dexter/dexter_valid.csv.npy", "./data-norm/madelon/madelon_valid.data.npy"]
 
-training_labels = ["./data_norm/gisette/gisette_train.labels.npy", "./data_norm/dexter/dexter_train.labels.npy", "./data_norm/madelon/madelon_train.labels.npy"]
-test_labels = ["./data_norm/gisette/gisette_valid.labels.npy", "./data_norm/dexter/dexter_valid.labels.npy", "./data_norm/madelon/madelon_valid.labels.npy"]
+training_labels = ["./data-norm/gisette/gisette_train.labels.npy", "./data-norm/dexter/dexter_train.labels.npy", "./data-norm/madelon/madelon_train.labels.npy"]
+test_labels = ["./data-norm/gisette/gisette_valid.labels.npy", "./data-norm/dexter/dexter_valid.labels.npy", "./data-norm/madelon/madelon_valid.labels.npy"]
 
 λ_master = [[0.197, 0.135, 0.08745, 0.053], [0.15, 0.0983663, 0.0713, 0.05269], [0.029799, 0.02435, 0.01695, 0.0074]]
 

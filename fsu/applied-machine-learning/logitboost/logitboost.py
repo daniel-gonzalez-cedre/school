@@ -6,11 +6,11 @@ import re
 import numpy as np
 import matplotlib.pyplot as plt
 
-training_data = ["./data_norm/gisette/gisette_train.data.npy", "./data_norm/dexter/dexter_train.csv.npy", "./data_norm/madelon/madelon_train.data.npy"]
-test_data = ["./data_norm/gisette/gisette_valid.data.npy", "./data_norm/dexter/dexter_valid.csv.npy", "./data_norm/madelon/madelon_valid.data.npy"]
+training_data = ["./data-norm/gisette/gisette_train.data.npy", "./data-norm/dexter/dexter_train.csv.npy", "./data-norm/madelon/madelon_train.data.npy"]
+test_data = ["./data-norm/gisette/gisette_valid.data.npy", "./data-norm/dexter/dexter_valid.csv.npy", "./data-norm/madelon/madelon_valid.data.npy"]
 
-training_labels = ["./data_norm/gisette/gisette_train.labels.npy", "./data_norm/dexter/dexter_train.labels.npy", "./data_norm/madelon/madelon_train.labels.npy"]
-test_labels = ["./data_norm/gisette/gisette_valid.labels.npy", "./data_norm/dexter/dexter_valid.labels.npy", "./data_norm/madelon/madelon_valid.labels.npy"]
+training_labels = ["./data-norm/gisette/gisette_train.labels.npy", "./data-norm/dexter/dexter_train.labels.npy", "./data-norm/madelon/madelon_train.labels.npy"]
+test_labels = ["./data-norm/gisette/gisette_valid.labels.npy", "./data-norm/dexter/dexter_valid.labels.npy", "./data-norm/madelon/madelon_valid.labels.npy"]
 
 def logitboost(X, Y, Xtest, Ytest, filename):
     N = X.shape[0]

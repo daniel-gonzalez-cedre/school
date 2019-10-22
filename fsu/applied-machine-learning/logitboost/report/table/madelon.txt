@@ -1,0 +1,5 @@
+Data Set & Features Selected $k$ & Training Error & Test Error\\\hline\cline{1-4}
+ & $10$ & $37.7$ & $40.33333333333333$\\\cline{2-4}
+	exttt{madelon} & $30$ & $34.5$ & $42.833333333333336$\\\cline{2-4}
+ & $100$ & $30.9$ & $43.333333333333336$\\\cline{2-4}
+ & $300$ & $26.950000000000003$ & $43.166666666666664$\\\hline\cline{1-4}

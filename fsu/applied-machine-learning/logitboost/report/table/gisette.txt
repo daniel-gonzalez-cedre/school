@@ -1,0 +1,5 @@
+Data Set & Features Selected $k$ & Training Error & Test Error\\\hline\cline{1-4}
+ & $10$ & $7.466666666666668$ & $8.7$\\\cline{2-4}
+	exttt{gisette} & $30$ & $3.3666666666666663$ & $3.8$\\\cline{2-4}
+ & $100$ & $1.25$ & $3.0$\\\cline{2-4}
+ & $300$ & $0.0$ & $2.7$\\\hline\cline{1-4}

@@ -45,13 +45,13 @@ for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_dat
 
         #OUTPUT DATA
         print("\t Writing normalized training data...")
-        np.save("./data_norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], data)
+        np.save("./data-norm/" + f_train_data.split("/")[-2] + "/" + f_train_data.split("/")[-1], data)
 
         print("\t Writing normalized validation data...")
-        np.save("./data_norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], valid)
+        np.save("./data-norm/" + f_test_data.split("/")[-2] + "/" + f_test_data.split("/")[-1], valid)
 
         print("\t Writing training labels...")
-        np.save("./data_norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], data_labels)
+        np.save("./data-norm/" + f_train_labels.split("/")[-2] + "/" + f_train_labels.split("/")[-1], data_labels)
 
         print("\t Writing validation labels...")
-        np.save("./data_norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], valid_labels)
+        np.save("./data-norm/" + f_test_labels.split("/")[-2] + "/" + f_test_labels.split("/")[-1], valid_labels)

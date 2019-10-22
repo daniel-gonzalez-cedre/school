@@ -6,11 +6,11 @@ import re
 import numpy as np
 import matplotlib.pyplot as plt
 
-training_data = ["./data_norm/gisette/gisette_train.data.npy", "./data_norm/dexter/dexter_train.csv.npy", "./data_norm/madelon/madelon_train.data.npy"]
-test_data = ["./data_norm/gisette/gisette_valid.data.npy", "./data_norm/dexter/dexter_valid.csv.npy", "./data_norm/madelon/madelon_valid.data.npy"]
+training_data = ["./data-norm/gisette/gisette-train.data.npy", "./data-norm/dexter/dexter-train.csv.npy", "./data-norm/madelon/madelon-train.data.npy"]
+test_data = ["./data-norm/gisette/gisette-valid.data.npy", "./data-norm/dexter/dexter-valid.csv.npy", "./data-norm/madelon/madelon-valid.data.npy"]
 
-training_labels = ["./data_norm/gisette/gisette_train.labels.npy", "./data_norm/dexter/dexter_train.labels.npy", "./data_norm/madelon/madelon_train.labels.npy"]
-test_labels = ["./data_norm/gisette/gisette_valid.labels.npy", "./data_norm/dexter/dexter_valid.labels.npy", "./data_norm/madelon/madelon_valid.labels.npy"]
+training_labels = ["./data-norm/gisette/gisette-train.labels.npy", "./data-norm/dexter/dexter-train.labels.npy", "./data-norm/madelon/madelon-train.labels.npy"]
+test_labels = ["./data-norm/gisette/gisette-valid.labels.npy", "./data-norm/dexter/dexter-valid.labels.npy", "./data-norm/madelon/madelon-valid.labels.npy"]
 
 #SHRINKAGE FACTOR
 s = 0.001
@@ -63,14 +63,13 @@ def fsa(X, Y, validation, η, k):
 
         #FIND THE NUMBER OF FEATURES TO RETAIN
         Mi = int(k + (M - k)*max(0, (N_itr - 2*i)/(2*i*μ + N_itr)))
-        #Mi = k + (M - k)*max(0, int((N_itr - 2*i)/(2*i*μ + N_itr)))
         β = feature_selection(β, Mi)
         indices = np.where(β == 0)
 
         #DELETE THE IRRELEVANT FEATURES FROM THE WEIGHTS AND DATA
         β = np.delete(β, indices)
-        X = np.delete(X, indices, 1)
-        validation = np.delete(validation, indices, 1)
+        X = np.delete(X, indices, axis=1)
+        validation = np.delete(validation, indices, axis=1)
         loss.append(lorenz_loss(X, Y, β))
     return β, X, validation, loss
 

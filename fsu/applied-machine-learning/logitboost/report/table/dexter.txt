@@ -1,0 +1,5 @@
+Data Set & Features Selected $k$ & Training Error & Test Error\\\hline\cline{1-4}
+ & $10$ & $7.333333333333333$ & $10.666666666666668$\\\cline{2-4}
+	exttt{dexter} & $30$ & $0.33333333333333337$ & $9.333333333333334$\\\cline{2-4}
+ & $100$ & $0.0$ & $9.0$\\\cline{2-4}
+ & $300$ & $0.0$ & $8.333333333333332$\\\hline\cline{1-4}

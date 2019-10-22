@@ -125,6 +125,7 @@ vector<complex<precision>> fft(vector<complex<precision>> f, int inverse){
 	return f;
 }
 
+//2-dimensional Discrete Fourier Transform using Fast Fourier Transforms
 /* computes the 2-dimensional (i)FFT of an input matrix F
  * O(n^2 log(n)) time complexity
  * O(n) space complexity

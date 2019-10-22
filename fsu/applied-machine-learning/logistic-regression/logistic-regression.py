@@ -7,11 +7,11 @@ from math import log
 import numpy as np
 import matplotlib.pyplot as plt
 
-training_data = ["./data_norm/madelon/madelon_train.data"]
-test_data = ["./data_norm/madelon/madelon_valid.data"]
+training_data = ["./data-norm/madelon/madelon_train.data"]
+test_data = ["./data-norm/madelon/madelon_valid.data"]
 
-training_labels = ["./data_norm/madelon/madelon_train.labels"]
-test_labels = ["./data_norm/madelon/madelon_valid.labels"]
+training_labels = ["./data-norm/madelon/madelon_train.labels"]
+test_labels = ["./data-norm/madelon/madelon_valid.labels"]
 
 def gradient(X, Y, weights):
     N = X.shape[0]
@@ -57,8 +57,8 @@ def log_likelihood(X, Y, weights):
 
 for f_train_data, f_test_data, f_train_labels, f_test_labels in zip(training_data, test_data, training_labels, test_labels):
     with open(f_train_data) as train_data, open(f_test_data) as test_data, open(f_train_labels) as train_labels, open(f_test_labels) as test_labels:
-        output_train_error = open("./output/train_error_" + f_train_data.split("/")[-2], "w")
-        output_test_error = open("./output/test_error_" + f_train_data.split("/")[-2], "w")
+        output_train_error = open("./output/train-error-" + f_train_data.split("/")[-2], "w")
+        output_test_error = open("./output/test-error-" + f_train_data.split("/")[-2], "w")
 
         train_error = 0
         test_error = 0
