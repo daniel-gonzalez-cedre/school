@@ -1,6 +1,5 @@
 /*
  * Daniel Gonzalez
- * dgonzale@math.fsu.edu
  * Florida State University Dept. of Mathematics
  */
 #include <iostream>
@@ -39,25 +38,15 @@ void print_matrix(vector<vector<precision>> A){
     cout << endl;
 }
 
-bool equals(vector<vector<precision>> A, vector<vector<precision>> B){
-    int n1 = A.size();
-    int n2 = A[0].size();
-    if(n1 != B.size() || n2 != B[0].size())
-        return false;
-    bool flag = true;
-    for(int i = 0; i < n1; i++)
-        for(int j = 0; j < n2; j++)
-            flag = flag && (A[i][j] == B[i][j]);
-    return flag;
-}
-
-vector<precision> scale(precision α, vector<precision> x){
+vector<precision> scale(precision α, vector<precision> x)
+{
 	for(int i = 0; i < x.size(); i++)
 		x[i] = α*x[i];
 	return x;
 }
 
-vector<vector<precision>> scale(precision α, vector<vector<precision>> X){
+vector<vector<precision>> scale(precision α, vector<vector<precision>> X)
+{
 	for(int i = 0; i < X.size(); i++)
 		for(int j = 0; j <= i; j++)
 			X[i][j] = α*X[i][j];
@@ -72,26 +61,22 @@ vector<vector<precision>> transpose(vector<vector<precision>> Q){
     return QT;
 }
 
-vector<precision> sum(vector<precision> x, vector<precision> y){
+vector<precision> sum(vector<precision> x, vector<precision> y)
+{
 	for(int i = 0; i < x.size(); i++)
 		x[i] = x[i] + y[i];
 	return x;
 }
 
-vector<precision> difference(vector<precision> x, vector<precision> y){
+vector<precision> difference(vector<precision> x, vector<precision> y)
+{
 	for(int i = 0; i < x.size(); i++)
 		x[i] = x[i] - y[i];
 	return x;
 }
 
-vector<vector<precision>> difference(vector<vector<precision>> X, vector<vector<precision>> Y){
-	for(int i = 0; i < X.size(); i++)
-        for(int j = 0; j < X[0].size(); j++)
-            X[i][j] = X[i][j] - Y[i][j];
-	return X;
-}
-
-vector<vector<precision>> sum(vector<vector<precision>> A, vector<vector<precision>> B){
+vector<vector<precision>> sum(vector<vector<precision>> A, vector<vector<precision>> B)
+{
 	int α = A.size();
 	int β = B.size();
 	int μ = (α < β) ? α : β;
@@ -106,7 +91,8 @@ vector<vector<precision>> sum(vector<vector<precision>> A, vector<vector<precisi
 	return A;
 }
 
-vector<vector<precision>> dense_sum(vector<vector<precision>> A, vector<vector<precision>> B){
+vector<vector<precision>> dense_sum(vector<vector<precision>> A, vector<vector<precision>> B)
+{
 	int n = A.size();
 	for(int i = 0; i < n; i++)
 		for(int j = 0; j < n; j++)
@@ -114,7 +100,8 @@ vector<vector<precision>> dense_sum(vector<vector<precision>> A, vector<vector<p
 	return A;
 }
 
-precision inner_product(vector<precision> x, vector<precision> y){
+precision inner_product(vector<precision> x, vector<precision> y)
+{
 	int n = x.size();
 	precision sum = 0;
 	for(int i = 0; i < n; i++)
@@ -122,7 +109,8 @@ precision inner_product(vector<precision> x, vector<precision> y){
 	return sum;
 }
 
-vector<vector<precision>> outer_product(vector<precision> x, vector<precision> y){
+vector<vector<precision>> outer_product(vector<precision> x, vector<precision> y)
+{
 	int n = x.size();
 	vector<vector<precision>> xyT(n);
 	for(int i = 0; i < n; i++)
@@ -131,7 +119,8 @@ vector<vector<precision>> outer_product(vector<precision> x, vector<precision> y
 	return xyT;
 }
 
-vector<precision> product(vector<vector<precision>> X, vector<precision> x){
+vector<precision> product(vector<vector<precision>> X, vector<precision> x)
+{
 	vector<precision> y;
 	int shift = X.size() - x.size();
 	for(int d = shift; d < X.size(); d++)
@@ -146,7 +135,8 @@ vector<precision> product(vector<vector<precision>> X, vector<precision> x){
 	return y;
 }
 
-vector<vector<precision>> product(vector<vector<precision>> A, vector<vector<precision>> B){
+vector<vector<precision>> product(vector<vector<precision>> A, vector<vector<precision>> B)
+{
 	int n = A.size();
 	vector<vector<precision>> C(n);
 	for(int i = 0; i < n; i++)

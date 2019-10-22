@@ -1,6 +1,5 @@
 /*
  * Daniel Gonzalez
- * dgonzale@math.fsu.edu
  * Florida State University Dept. of Mathematics
  */
 #include <iostream>

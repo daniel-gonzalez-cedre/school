@@ -58,8 +58,8 @@ function crude(r, σ, T, K, S₀, n, N)
     W = map(bsm, halton(n, N))
     Y = []
     for m = 1:N
-        S = S₀*sum(e^((r - σ^2/2)*i/n + σ*W[m, i]) for i = 1:n)
-        SA = (S₀ + S)/(n + 1)
+        S = S₀ .* [e^((r - σ^2/2)*i/n + σ*W[m, i]) for i = 1:n]
+        SA = (S₀ + sum(S))/(n + 1)
         append!(Y, discount*(SA - K > 0 ? SA - K : 0))
     end
     return mean(Y)
