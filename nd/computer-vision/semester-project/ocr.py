@@ -80,11 +80,8 @@ def main():
 
     # CROP IMAGE
     #imgcrop = imgbin[rows//2:rows,:]
-    imgcrop = adaptive_crop(imgbin)
-
-    #print(np.sum(imgbin))
-    #print(np.sum(imgcrop))
-    #print(np.sum(imgcrop) / np.sum(imgbin))
+    #imgcrop = adaptive_crop(imgbin)
+    imgcrop = imgbin
 
     cv.imshow('binary image', imgcrop)
     cv.waitKey(0)
@@ -92,7 +89,6 @@ def main():
     labels = measure.label(imgcrop, 4)
     features = measure.regionprops(labels)
     print("I found %d objects in total." % (len(features)))
-    
     
     his = []
     for i in range(0, len(features)):
@@ -131,15 +127,5 @@ def main():
         #    y, x = features[i].centroid
         #    ax.plot(x, y, '.b', markersize=10)
     plt.show()
-
-    ## CONSTRUCT INTENSITY-BASED MASK
-    #mask = threshold(small, 0, 150)
-
-    ## DISPLAY MASK
-    #cv.imshow('mask', mask)
-    #cv.waitKey(0)
-
-    #cv.imshow('new', mask * imgcrop
-    #cv.waitKey(0)
 
 main()
