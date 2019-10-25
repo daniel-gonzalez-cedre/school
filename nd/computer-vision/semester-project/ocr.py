@@ -7,33 +7,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 sns.set(style='ticks', palette='Set2')
 
-# SIMPLE RANGE-BASED THRESHOLDING
-def threshold(img, lower, upper):
-    return cv.inRange(img, np.asarray([lower]), np.asarray([upper]))
+times_new_roman0 = [\
+        ]
 
-def integral(img):
-    rows, cols = img.shape
-    return np.reshape(np.asarray([np.sum(img[0:i + 1, 0:j + 1]) for i in range(0, rows) for j in range(0, cols)]), (rows, cols))
-
-# ADAPTIVE THRESHOLDING: Bradley & Roth - 'Adaptive Thresholding using the Integral Image'
-def adaptive_threshold(img, dim, t):
-    rows, cols = img.shape
-    integ = integral(img)
-    result = img.copy()
-
-    for i in range(rows):
-        for j in range(cols):
-            x1 = int(max(i - dim/2, 0))
-            x2 = int(min(i + dim/2, rows - 1))
-            y1 = int(max(j - dim/2, 0))
-            y2 = int(min(j + dim/2, cols - 1))
-            count = (x2 - x1)*(y2 - y1)
-            s = integ[x2, y2] - integ[x2, y1 - 1] - integ[x1 - 1, y2] + integ[x1 - 1, y1 - 1]
-            if img[i, j]*count <= s*(100 - t)/100:
-                result[i, j] = 0
-            else:
-                result[i, j] = 255
-    return result
+def template():
+    return 0
 
 # adaptive cropping - describe this in more detail
 def adaptive_crop(img):
@@ -72,60 +50,38 @@ def main():
     #cv.waitKey(0)
 
     #integ = integral(img)
-    ker = np.ones((3, 3), dtype=np.uint8)
+    ker = np.ones((5, 5), dtype=np.uint8)
     imgbin = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 25, 20)
     imgbin = 255*np.ones(imgbin.shape, dtype=np.uint8) - imgbin
     #imgbin = cv.erode(imgbin, ker, iterations=1)
-    imgbin = cv.dilate(imgbin, ker, iterations=1)
+    #imgbin = cv.dilate(imgbin, ker, iterations=1)
 
     # CROP IMAGE
-    #imgcrop = imgbin[rows//2:rows,:]
+    imgcrop = imgbin[rows//2:rows,:]
     #imgcrop = adaptive_crop(imgbin)
-    imgcrop = imgbin
+    #imgcrop = imgbin
 
     cv.imshow('binary image', imgcrop)
     cv.waitKey(0)
 
-    labels = measure.label(imgcrop, 4)
+    labels = measure.label(imgcrop, 8)
     features = measure.regionprops(labels)
     print("I found %d objects in total." % (len(features)))
     
-    his = []
-    for i in range(0, len(features)):
-        #if features[i].minor_axis_length > 0:
-        #    his.append(features[i].major_axis_length / features[i].minor_axis_length)
-        his.append(features[i].bbox)
-    his.sort()
-    print(his)
-    #plt.hist(his)
-    #plt.xlabel("Ratio")
-    #plt.ylabel("Count")
-    #plt.show()
-
-    #for f in features:
-    #    plt.imshow(f.image)
-    #    plt.show()
     fig, ax = plt.subplots()
     ax.imshow(imgcrop, cmap=plt.cm.gray)
-    for i in range(0, len(his)):
-        #if abs(his[i] - 1.8) < 0.5 or abs(his[i] - 2.5) < 0.5 or abs(his[i] - 2.8) < 0.5:
-        #    y, x = features[i].centroid
-        #    ax.plot(x, y, '.g', markersize=10)
-        x1, y1, x2, y2 = his[i]
+    #for i in range(0, len(his)):
+    for f in features:
+        x1, y1, x2, y2 = f.bbox
         ratio = (x2 - x1)/(y2 - y1)
         if abs(ratio - 1.8) < 0.5 or abs(ratio - 2.5) < 0.5 or abs(ratio - 2.8) < 0.5:
             #plt.imshow(features[i].image)
             #plt.show()
-            y, x = features[i].centroid
+            plt.imshow(f.image)
+            plt.show()
+            y, x = f.centroid
+            #ax.plot((x2 - x1)/2, (y2 - y1)/2, '.g', markersize=10)
             ax.plot(x, y, '.g', markersize=10)
-        #if his[i] <= fThr:
-        #    squares = squares + 1
-        #    y, x = features[i].centroid
-        #    ax.plot(x, y, '.g', markersize=10)
-        #else:
-        #    cashews = cashews + 1
-        #    y, x = features[i].centroid
-        #    ax.plot(x, y, '.b', markersize=10)
     plt.show()
 
 main()

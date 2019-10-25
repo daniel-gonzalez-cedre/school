@@ -43,3 +43,31 @@ def histogram_eq(img):
     F = cdf(img)
     eq = np.array([F[p]*255 for p in img], dtype=np.uint8)
     return eq
+
+# SIMPLE RANGE-BASED THRESHOLDING
+def threshold(img, lower, upper):
+    return cv.inRange(img, np.asarray([lower]), np.asarray([upper]))
+
+def integral(img):
+    rows, cols = img.shape
+    return np.reshape(np.asarray([np.sum(img[0:i + 1, 0:j + 1]) for i in range(0, rows) for j in range(0, cols)]), (rows, cols))
+
+# ADAPTIVE THRESHOLDING: Bradley & Roth - 'Adaptive Thresholding using the Integral Image'
+def adaptive_threshold(img, dim, t):
+    rows, cols = img.shape
+    integ = integral(img)
+    result = img.copy()
+
+    for i in range(rows):
+        for j in range(cols):
+            x1 = int(max(i - dim/2, 0))
+            x2 = int(min(i + dim/2, rows - 1))
+            y1 = int(max(j - dim/2, 0))
+            y2 = int(min(j + dim/2, cols - 1))
+            count = (x2 - x1)*(y2 - y1)
+            s = integ[x2, y2] - integ[x2, y1 - 1] - integ[x1 - 1, y2] + integ[x1 - 1, y1 - 1]
+            if img[i, j]*count <= s*(100 - t)/100:
+                result[i, j] = 0
+            else:
+                result[i, j] = 255
+    return result
