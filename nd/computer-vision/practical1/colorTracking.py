@@ -88,29 +88,56 @@ while (True):
     # ignore bounding boxes smaller than "minObjectSize"
     minObjectSize = 20;
 
+    def func(args):
+        x, y, w, h = args
+        return w*h
+
     #######################################################
     # TASK 2:
     if contours:
-        for contour in contours:
-            x, y, w, h = cv2.boundingRect(contour)
+        contour = max(contours, key=lambda c: func(cv2.boundingRect(c)))
+        x, y, w, h = cv2.boundingRect(contour)
 
-            #######################################################
-            # TASK 2 tip: you want to get bounding boxes
-            # of ALL contours (not only the first one)
-            #######################################################
-            # do not show very small objects
-            if w > minObjectSize or h > minObjectSize:
-                cv2.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 3)
-                cv2.putText(img,                        # image
-                            "Here's my candy!",         # text
-                            (x, y-10),                  # start position
-                            cv2.FONT_HERSHEY_SIMPLEX,   # font
-                            0.7,                        # size
-                            (0, 255, 0),                # BGR color
-                            1,                          # thickness
-                            cv2.LINE_AA)                # type of line
+        #######################################################
+        # TASK 2 tip: you want to get bounding boxes
+        # of ALL contours (not only the first one)
+        #######################################################
+        # do not show very small objects
+        if w > minObjectSize or h > minObjectSize:
+            cv2.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 3)
+            cv2.putText(img,                        # image
+                        "Here's my candy!",         # text
+                        (x, y-10),                  # start position
+                        cv2.FONT_HERSHEY_SIMPLEX,   # font
+                        0.7,                        # size
+                        (0, 255, 0),                # BGR color
+                        1,                          # thickness
+                        cv2.LINE_AA)                # type of line
 
-                cv2.imshow("Live WebCam", img)
+            cv2.imshow("Live WebCam", img)
+        #for contour in contours:
+        #    x, y, w, h = cv2.boundingRect(contour)
+        #    print(x, y, w, h)
+        #    size = (w)*(h)
+        #    exit()
+
+        #    #######################################################
+        #    # TASK 2 tip: you want to get bounding boxes
+        #    # of ALL contours (not only the first one)
+        #    #######################################################
+        #    # do not show very small objects
+        #    if w > minObjectSize or h > minObjectSize:
+        #        cv2.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 3)
+        #        cv2.putText(img,                        # image
+        #                    "Here's my candy!",         # text
+        #                    (x, y-10),                  # start position
+        #                    cv2.FONT_HERSHEY_SIMPLEX,   # font
+        #                    0.7,                        # size
+        #                    (0, 255, 0),                # BGR color
+        #                    1,                          # thickness
+        #                    cv2.LINE_AA)                # type of line
+
+        #        cv2.imshow("Live WebCam", img)
     action = cv2.waitKey(1)
     if action == 27:
         break
