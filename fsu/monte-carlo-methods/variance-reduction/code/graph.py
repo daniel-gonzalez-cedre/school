@@ -54,5 +54,5 @@ def main():
     error_anti = [abs(θ - m) for m in mean_anti]
     error_control = [abs(θ - m) for m in mean_control]
     graph_error(N, error_crude, error_anti, error_control, 'error')
-    
+
 main()
