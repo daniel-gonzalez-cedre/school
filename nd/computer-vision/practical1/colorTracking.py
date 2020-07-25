@@ -56,8 +56,10 @@ while (True):
     blue_lower = np.array([103, 180, 100])
     blue_upper = np.array([115, 250, 170])
 
-    lower = [green_lower, yellow_lower, blue_lower]
-    upper = [green_upper, yellow_upper, blue_upper]
+    lower = [blue_lower]
+    upper = [blue_upper]
+    #lower = [green_lower, yellow_lower, blue_lower]
+    #upper = [green_upper, yellow_upper, blue_upper]
 
     objmask = sum(cv2.inRange(hsv, l, u) for l in lower for u in upper)
 
